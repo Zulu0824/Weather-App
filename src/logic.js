@@ -4,11 +4,10 @@ const mainContent = document.getElementById("main-content");
 
 const API_KEY = "D4WY56P3JJQFPDXQRU446UJPW";
 
-async function getWeather() {
-  let location = search.value.trim();
+async function getWeather(location) {
   try {
     const response = await fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/?key=${API_KEY}`,
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(location)}/?key=${API_KEY}`,
     );
     if (!response.ok) {
       throw new Error(`Weather API Error: ${response.status}`);
@@ -16,8 +15,16 @@ async function getWeather() {
     let data = await response.json();
     console.log(data);
   } catch (error) {
-    console.error(error);
+    alert(error);
   }
 }
 
-searchBtn.addEventListener("click", getWeather);
+searchBtn.addEventListener("click", () => {
+  getWeather(search.value.trim());
+});
+
+search.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    getWeather(search.value.trim());
+  }
+});
