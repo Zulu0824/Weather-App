@@ -20,7 +20,7 @@ body {
 /* logo-heading */
 
 #header-section {
-  background-color: lightblue;
+  background-color: #8fe0ff;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
 }
@@ -78,14 +78,80 @@ body {
 }
 
 #main-content {
+  border-top: 5px solid black;
   display: flex;
   justify-content: center;
+  background-color: #fafbfc;
 }
 
 #app-container {
-  background-color: blue;
+  background: #def0fc;
   width: 800px;
   height: 500px;
   margin-top: 50px;
-  border-radius: 10px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  padding: 30px 40px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#first-row {
+  display: flex;
+  gap: 100px;
+}
+
+#weather-location {
+  font-size: 2em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #1a3f5c;
+}
+
+#first-row {
+  display: flex;
+  gap: 100px;
+}
+
+#temperature-box,
+#humidity-box,
+#windspeed-box,
+#desc-box {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  flex: 1;
+}
+
+#temperature-box h4,
+#humidity-box h4,
+#windspeed-box h4,
+#desc-box h4 {
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #5a7a94;
+  margin-bottom: 10px;
+}
+
+#temperature-box p,
+#humidity-box p,
+#windspeed-box p {
+  font-size: 1.6em;
+  font-weight: 500;
+  color: #1a3f5c;
+}
+
+#temperature-box p:first-of-type {
+  margin-bottom: 6px;
+}
+
+#desc-box p {
+  font-size: 1.1em;
+  line-height: 1.5;
+  color: #33495e;
 }

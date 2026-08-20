@@ -21,7 +21,8 @@ async function getWeather() {
   }
 }
 function renderUI(data) {
-  document.getElementById("weather-location").textContent = data.resolvedAdress;
+  document.getElementById("weather-location").textContent =
+    data.resolvedAddress;
 
   document.getElementById("temp-high").textContent =
     `High: ${data.days[0].tempmax}°C`;
@@ -47,5 +48,5 @@ search.addEventListener("keydown", function (e) {
   }
 });
 
-search.value = "New York";
-getWeather("New York");
+// search.value = "New York";
+// getWeather("New York");
