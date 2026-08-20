@@ -76,3 +76,16 @@ body {
   cursor: pointer;
   margin-left: 15px;
 }
+
+#main-content {
+  display: flex;
+  justify-content: center;
+}
+
+#app-container {
+  background-color: blue;
+  width: 800px;
+  height: 500px;
+  margin-top: 50px;
+  border-radius: 10px;
+}
