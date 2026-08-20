@@ -30,8 +30,22 @@ function renderUI(data) {
 
   document.getElementById("weather-humidity").textContent =
     `${data.currentConditions.humidity.toFixed(0)}%`;
+
   document.getElementById("weather-description").textContent = data.description;
 
   document.getElementById("weather-windspeed").textContent =
     `${data.currentConditions.windspeed} km/h`;
 }
+
+searchBtn.addEventListener("click", () => {
+  getWeather(search.value.trim());
+});
+
+search.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    getWeather(search.value.trim());
+  }
+});
+
+search.value = "New York";
+getWeather("New York");
