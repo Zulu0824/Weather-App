@@ -47,8 +47,10 @@ body {
 
 #search-bar {
   /* height: ; */
-  font-size: 1.2rem;
-  padding: 8px 30px;
+  font-size: 1.5em;
+  height: 40px;
+  width: 350px;
+  padding-left: 15px;
   letter-spacing: 1px;
   outline: none;
   border-radius: 5px;
