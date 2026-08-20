@@ -8,7 +8,7 @@ async function getWeather() {
   let location = search.value.trim();
   try {
     const response = await fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/?key=${API_KEY}`,
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(location)}/?unitGroup=metric&key=${API_KEY}`,
     );
     if (!response.ok) {
       throw new Error(`Weather API Error: ${response.status}`);
@@ -20,6 +20,7 @@ async function getWeather() {
     console.error(error);
   }
 }
+
 function renderUI(data) {
   document.getElementById("weather-location").textContent =
     data.resolvedAddress;
@@ -31,6 +32,8 @@ function renderUI(data) {
 
   document.getElementById("weather-humidity").textContent =
     `${data.currentConditions.humidity.toFixed(0)}%`;
+
+  document.getElementById("uv-Index").textContent = `${data.days[0].uvindex}`;
 
   document.getElementById("weather-description").textContent = data.description;
 
@@ -48,5 +51,5 @@ search.addEventListener("keydown", function (e) {
   }
 });
 
-// search.value = "New York";
-// getWeather("New York");
+search.value = "New York";
+getWeather("New York");
